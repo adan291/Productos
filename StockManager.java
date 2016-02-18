@@ -44,6 +44,7 @@ public class StockManager
         for(Product producto : stock){
            if(producto.getID() == id){
                producto.increaseQuantity(amount);
+               System.out.println("Se ha aumentado la cantidad al producto: " + id + " | " +  amount) ;
             }
            else{
                System.out.println("No se encuentra el producto con la ID: " + id) ;
@@ -66,6 +67,25 @@ public class StockManager
         for(Product producto : stock){
            if(producto.getID() == id){
                produccto = producto;
+               
+            }
+        }
+        return produccto;
+    }
+     /**
+     * Try to find a product in the stock with the given id.
+     * @return The identified product, or null if there is none
+     *         with a matching ID.
+     *         Trate de encontrar un producto en la acción con el dado id.
+     devuelva el producto identificado, o la inutilidad si no hay ninguno con una correspondencia ID.
+     */
+    public Product findProduct2(int id)
+    {
+        //Recorre los productos , compara si el producto tiene esa id, y añade el producto a la variable creada al principio del metodo para luego devolverla.
+        Product produccto = null;
+        for(int index = 0; index < stock.size()&&produccto==null; index++){
+           if(stock.get(index).getID() == id){
+               produccto = stock.get(index);
                
             }
         }
