@@ -34,9 +34,21 @@ public class StockManager
      * Increase the quantity of the product by the given amount.
      * @param id The ID of the product.
      * @param amount The amount to increase the quantity by.
+     * Reciba una entrega de un producto particular. Aumente la cantidad del producto por la cantidad dada.
+     *
      */
     public void delivery(int id, int amount)
     {
+       
+        for(Product producto : stock){
+           if(producto.getID() == id){
+               producto.increaseQuantity(amount);
+            }
+           else{
+               System.out.println("No se encuentra el producto con esa ID: " + producto.getID()) ;
+            }
+        }
+        
     }
     
     /**
