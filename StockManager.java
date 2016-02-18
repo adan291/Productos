@@ -39,7 +39,8 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
-        
+        //Recorre los productos , compara si el producto tiene esa id, e invoca el metodo de incremetar la cantida.Si no hay producto muestra por pantalla que la id que ha puesto el usuario
+        //no se corresponde con ningun producto.
         for(Product producto : stock){
            if(producto.getID() == id){
                producto.increaseQuantity(amount);
@@ -60,6 +61,7 @@ public class StockManager
      */
     public Product findProduct(int id)
     {
+        //Recorre los productos , compara si el producto tiene esa id, y añade el producto a la variable creada al principio del metodo para luego devolverla.
         Product produccto = null;
         for(Product producto : stock){
            if(producto.getID() == id){
@@ -82,6 +84,7 @@ public class StockManager
     
     public int numberInStock(int id)
     {
+        //Recorre los productos , compara si el producto tiene esa id, y añade el producto a la variable creada la cantidad invocando el metodo de la cantidad de productos en el stock y lo devuelve.
         int cantidad = 0;
         for(Product producto : stock){
            if(producto.getID() == id){
