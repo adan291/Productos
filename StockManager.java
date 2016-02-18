@@ -43,6 +43,8 @@ public class StockManager
      * Try to find a product in the stock with the given id.
      * @return The identified product, or null if there is none
      *         with a matching ID.
+     *         Trate de encontrar un producto en la acción con el dado id.
+     devuelva el producto identificado, o la inutilidad si no hay ninguno con una correspondencia ID.
      */
     public Product findProduct(int id)
     {
@@ -62,10 +64,19 @@ public class StockManager
      * match any product, return zero.
      * @param id The ID of the product.
      * @return The quantity of the given product in stock.
+     * Localice un producto con el dado ID, y la vuelta cuantos de este artículo está en la acción. 
+     * Si el ID no empareja ningún producto, el cero de vuelta. param id el ID del producto. devuelva la cantidad del producto dado en la acción
      */
+    
     public int numberInStock(int id)
     {
-        return 0;
+        int cantidad = 0;
+        for(Product producto : stock){
+           if(producto.getID() == id){
+               cantidad = producto.getQuantity();
+            }
+        }
+        return cantidad;
     }
 
     /**
