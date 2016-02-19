@@ -26,13 +26,13 @@ public class StockManager
      */
     public void addProduct(Product item)
     {
-        Product producto = findProduct(item.getID()); //LLamamos al metodo find product para reccorrer el stock y al ser null lo reccorremos entero. Despues si es null añadimos el item
+        //LLamamos al metodo find product para reccorrer el stock y al ser null lo reccorremos entero. Despues si es null añadimos el item
         //pero si ya hay un item en el stock nos muestra por pantalla que el producto ya esta en stock.
-        if(producto==null){
-           stock.add(item);
+        if(findProduct(item.getID())== null){
+            stock.add(item);
         }else
         {
-           System.out.println("Ese producto ya esta en stock");
+            System.out.println("Ese producto ya esta en stock");
         }
     }
 
@@ -111,6 +111,20 @@ public class StockManager
                 System.out.println(producto);
             }
         }
+    }
+
+    /**
+     * Método que busca un producto por su nombre.
+     */
+    public Product findProduct(String name){
+         //Recorre los productos , compara si el producto es null, y añade el nombre del producto a la variable creada al principio del metodo para luego devolverla.
+        Product productoID = null;
+        for(int index = 0; index < stock.size()&&productoID==null; index++){
+            if (stock.get(index).getName().equals(name)){
+                productoID = stock.get(index );
+            }
+        }
+        return productoID;
     }
 }
 
